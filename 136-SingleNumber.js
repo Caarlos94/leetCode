@@ -5,8 +5,27 @@ FECHA: 30/11/2023
 TIEMPO: 35 MINUTOS
 ESTATUS: NO RESUELTO
 CODIGO:
+
+Given a non-empty array of integers nums, every element appears twice except for one. Find that single one.
+You must implement a solution with a linear runtime complexity and use only constant extra space.
 */
-var singleNumber = function (nums) {
+
+// SEGUNDA VEZ RESUELTO 17/12/2023 EN 9 MINUTOS
+const singleNumber = (nums) => {
+  const hash = {};
+  for (let number of nums) {
+    if (!hash[number]) hash[number] = true;
+    else hash[number] = false;
+  }
+
+  for (let nums in hash) {
+    if (hash[nums]) return nums;
+  }
+};
+
+console.log(singleNumber([1, 2, 2]));
+
+var singleNumber1 = function (nums) {
   for (let i = 0; i < nums.length; i++) {
     for (var j = i + 1; j < nums.length - 1; j++) {
       if (nums[i] === nums[j]) {
@@ -80,5 +99,5 @@ const breadthFirstSearch = (root) => {
   return result;
 };
 
-console.log("ITERATIVE BFS");
-console.log(breadthFirstSearch(a));
+//console.log("ITERATIVE BFS");
+//console.log(breadthFirstSearch(a));

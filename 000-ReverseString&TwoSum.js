@@ -7,6 +7,13 @@ const reverseString = (str) => {
 };
 // console.log(reverseString("Mi nombre es Carlos"));
 
+const revereStringRecursive = (str) => {
+  if (!str) return str;
+  return revereStringRecursive(str.slice(1)) + str[0];
+};
+
+console.log(revereStringRecursive("Mi nombre es Carlos"));
+
 const mergeSortedArray = (array1, array2) => {
   if (!array1 || array1.length === 0) return array2;
   if (!array2 || array2.length === 0) return array1;
